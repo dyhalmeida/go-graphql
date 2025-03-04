@@ -2,6 +2,10 @@
 
 Este projeto é uma aplicação de exemplo que utiliza Go e GraphQL para criar uma API eficiente e flexível. O objetivo é demonstrar como configurar e usar GraphQL com Go para construir APIs modernas.
 
+<p align="center">
+    <img alt="GraphQL Playground" src=".github/graphql-playground.png" width="100%" />
+<p>
+
 ## Pré-requisitos
 
 Antes de começar, certifique-se de ter o Go instalado na sua máquina. Você pode baixar e instalar o Go a partir do [site oficial](https://golang.org/dl/).
