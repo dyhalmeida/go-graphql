@@ -11,6 +11,7 @@ type Course struct {
 	ID          string
 	Name        string
 	Description string
+	CategoryID  string
 }
 
 func NewCourse(db *sql.DB) *Course {
@@ -32,4 +33,24 @@ func (c *Course) Create(name, description, categoryId string) (Course, error) {
 
 	return Course{ID: id, Name: name, Description: description}, nil
 
+}
+
+func (c *Course) FindAll() ([]Course, error) {
+	rows, err := c.db.Query("SELECT * FROM courses")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var courses []Course
+
+	for rows.Next() {
+		var course Course
+		err := rows.Scan(&course.ID, &course.Name, &course.Description, &course.CategoryID)
+		if err != nil {
+			return nil, err
+		}
+		courses = append(courses, course)
+	}
+	return courses, nil
 }
