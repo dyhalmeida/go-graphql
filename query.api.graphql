@@ -1,0 +1,45 @@
+mutation newCategory {
+  createCategory(input: { name: "Frontend", description: "Frontend Developer" }),
+  {
+    id
+    name
+    description
+  }
+}
+
+query getCategories {
+  categories {
+    id
+    name
+    description
+    courses {
+      id
+      name
+    }
+  }
+}
+
+mutation newCourse {
+  createCourse(input: {
+    name: "ReactJs",
+    description: "Curso de frontend utilizando React JS",
+    categoryId: "c7c0c4bd-29b1-45f4-a7df-7d8aa3f4aea6"
+  }), {
+    id
+    name
+    description
+  }
+}
+
+query getCourses {
+  courses {
+    id
+    name
+    description
+    category {
+      id
+      name
+      description
+    }
+  }
+}
